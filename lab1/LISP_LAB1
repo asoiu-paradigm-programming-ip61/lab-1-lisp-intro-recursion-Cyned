@@ -1,0 +1,47 @@
+(SETQ list1 '(3 '(3 4 5 Y U) '(T Y)))
+(SETQ list2 '(G H '(6 7 8) 8 9 0 7 6))
+(SETQ list3 '('(5 T 7 Y H) U))
+
+; ---------Task 1-------------
+(print "TASK 1:")
+
+(print
+	((lambda (x y z) 
+    	(LIST (CAR x) (CAR y) (CAR z))
+    	)
+    list1 list2 list3
+    )
+)
+
+
+; ---------Task 2-------------
+(print "TASK 2:")
+
+(DEFUN MYJOIN (x y z)
+	(LIST (SECOND x) (THIRD y) (SECOND z))
+)
+
+(print (MYJOIN list1 list2 list3))
+
+
+; ---------Task 3-------------
+(print "TASK 3:")
+
+(SETQ custom_list '(1 2 3 4 5 6 7 8 9 0))
+(SETQ custom_object1 10)
+(SETQ custom_object2 '(10))
+
+(DEFUN CUSTOM_FUNCTION (x y)
+	(if (AND (ATOM (CAR x)) (ATOM y))
+		(CONS y (CDR x))
+		(CAR (LAST x))
+	)
+)
+
+(print
+	(CUSTOM_FUNCTION custom_list custom_object1)
+)
+
+(print
+	(CUSTOM_FUNCTION custom_list custom_object2)
+)
